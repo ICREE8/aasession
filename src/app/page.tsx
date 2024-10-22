@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ConnectButton, useReadContract, useActiveAccount } from "thirdweb/react";
+import { TransactionButton, ConnectButton, useReadContract, useActiveAccount } from "thirdweb/react";
 import { client } from "./client";
 import { baseSepolia } from "thirdweb/chains"
 import { getContract } from "thirdweb";
