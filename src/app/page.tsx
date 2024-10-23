@@ -8,7 +8,7 @@ import { getContract } from "thirdweb";
 import { getAllActiveSigners } from "thirdweb/extensions/erc4337";
 import { claimTo } from "thirdweb/extensions/erc721";
 import { addSessionKey } from "thirdweb/extensions/erc4337";
-
+import { Account } from "thirdweb/wallets";
 
 export default function Home() {
   const smartWallet = useActiveAccount();
@@ -24,6 +24,27 @@ export default function Home() {
     getAllActiveSigners, { contract: contract, });
   console.log(activeSigners);
 
+
+  const claimNFT = async () => {
+    try {
+      const response = await fetch("/api/claimNFT", {
+        method: "POST",
+        body: JSON.stringify({
+          address: smartWallet?.address as string,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert("NFT claimed!");
+      } else {
+        alert("Failed to claim NFT");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
@@ -56,7 +77,7 @@ export default function Home() {
         transaction={() => addSessionKey({
           contract: contract,
           account: smartWallet as Account,
-          sessionKeyAddress: "",
+          sessionKeyAddress: "0x3EcDBF3B911d0e9052b64850693888b008e18373",
           permissions: {
             approvedTargets: "*",
             nativeTokenLimitPerTransaction: 0.05,
@@ -65,6 +86,10 @@ export default function Home() {
           }
 
         })}
+        onError={(error) => {
+          console.error(error);
+        }}
+        onTransactionConfirmed={async () => alert("Session Key Added!")}
       >
         Add Session Key
       </TransactionButton>
