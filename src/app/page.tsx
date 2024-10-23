@@ -7,6 +7,7 @@ import { baseSepolia } from "thirdweb/chains"
 import { getContract } from "thirdweb";
 import { getAllActiveSigners } from "thirdweb/extensions/erc4337";
 import { claimTo } from "thirdweb/extensions/erc721";
+import { addSessionKey } from "thirdweb/extensions/erc4337";
 
 
 export default function Home() {
@@ -50,6 +51,22 @@ export default function Home() {
           alert("NFT Claimed Successfully!")}
       >
         CLAIM NFT
+      </TransactionButton>
+      <TransactionButton
+        transaction={() => addSessionKey({
+          contract: contract,
+          account: smartWallet as Account,
+          sessionKeyAddress: "",
+          permissions: {
+            approvedTargets: "*",
+            nativeTokenLimitPerTransaction: 0.05,
+            permissionStartTimestamp: new Date(),
+            permissionEndTimestamp: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+          }
+
+        })}
+      >
+        Add Session Key
       </TransactionButton>
     </div >
   );
