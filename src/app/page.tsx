@@ -1,4 +1,4 @@
-"use client";
+"useActiveAccount";
 
 import Image from "next/image";
 import { TransactionButton, ConnectButton, useReadContract, useActiveAccount } from "thirdweb/react";
@@ -77,7 +77,7 @@ export default function Home() {
         transaction={() => addSessionKey({
           contract: contract,
           account: smartWallet as Account,
-          sessionKeyAddress: "0x3EcDBF3B911d0e9052b64850693888b008e18373",
+          sessionKeyAddress: "0x4Ff9aa707AE1eAeb40E581DF2cf4e14AffcC553d",
           permissions: {
             approvedTargets: "*",
             nativeTokenLimitPerTransaction: 0.05,
