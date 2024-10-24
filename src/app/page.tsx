@@ -1,4 +1,4 @@
-"useActiveAccount";
+"useClient";
 
 import Image from "next/image";
 import { TransactionButton, ConnectButton, useReadContract, useActiveAccount } from "thirdweb/react";
