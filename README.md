@@ -1,5 +1,13 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+🚀 A New Era of Web3 E-commerce
+
+This project showcases the power of Web3 technology, leveraging Thirdweb's robust tools and the latest blockchain advancements to create an innovative e-commerce platform.
+
+Prerequisites:
+
+Node.js and npm (or yarn): Ensure you have the latest versions installed.
+Thirdweb CLI: Follow the official Thirdweb documentation to set up the CLI.
 ## Getting Started
 
 First, run the development server:
